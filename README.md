@@ -19,6 +19,8 @@ This document provides general information about the paper called "Lessons learn
 - Guillermo Pérez-Hernández [1,3]
 - Andrea Volkamer* [1,2]
 - John D. Chodera* [3]
+
+
 [1] In silico Toxicology and Structural Bioinformatics, Institute of Physiology, Charité-Universitatsmedizin Berlin, Germany.
 [2] Data Driven Drug Design, Saarland University, Saarbrücken, Germany.
 [3] Computational and Systems Biology Program, Sloan Kettering Institute, Memorial Sloan Kettering Cancer Center, New York, USA.
