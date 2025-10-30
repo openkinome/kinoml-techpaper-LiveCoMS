@@ -1,4 +1,4 @@
-# The Journey of Data: Lessons Learned in Modelling Kinase Affinity, Selectivity, and Resistance
+# The Journey of Data: Lessons Learned in Modeling Kinase Affinity, Selectivity, and Resistance
 
 This document provides general information about the paper called "Lessons learned during the journey of data: from experiment to model for predicting kinase affinity, selectivity, polypharmacology, and resistance".
 
