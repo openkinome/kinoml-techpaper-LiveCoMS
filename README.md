@@ -4,7 +4,7 @@ This document provides general information about the paper called "Lessons learn
 
 ## List of Authors
 
-- Raquel López-Ríos de Castro [1,3]
+- Raquel López-Ríos de Castro [1,2,3]
 - Jaime Rodríguez-Guerra [1,3]
 - David Schaller [1,3]
 - Talia B. Kimber [1,3]
@@ -16,7 +16,8 @@ This document provides general information about the paper called "Lessons learn
 - Iván Pulido [3]
 - Sukrit Singh [3]
 - Paula Linh Kramer [2]
-- Guillermo Pérez-Hernández [1,3]
+- Guillermo Pérez-Hernández [1,2,3]
+- Joschka Groß [2]
 - Andrea Volkamer* [1,2]
 - John D. Chodera* [3]
 
@@ -28,7 +29,7 @@ This document provides general information about the paper called "Lessons learn
 [3] Computational and Systems Biology Program, Sloan Kettering Institute, Memorial Sloan Kettering Cancer Center, New York, USA.
 
 ## List of Contributors
-- None
+- Same as Authors' List
 
 ## Paper writing as code development
 <!-- This discussion is so that people know how to contribute to your document. -->
