@@ -11,7 +11,7 @@ This document provides general information about the paper called "Lessons learn
 - Corey Taylor [1,3]
 - Jessica B. White [3]
 - Michael Backenköhler [2]
-- Joschka Groß [2]
+- Joschka Groß [4]
 - Alexander M. Payne [3]
 - Benjamin Kaminow [3]
 - Iván Pulido [3]
@@ -27,6 +27,8 @@ This document provides general information about the paper called "Lessons learn
 [2] Data Driven Drug Design, Saarland University, Saarbrücken, Germany.
 
 [3] Computational and Systems Biology Program, Sloan Kettering Institute, Memorial Sloan Kettering Cancer Center, New York, USA.
+
+[4] Neuro-Mechanistic Modeling, German Research Center for Artificial Intelligence, Saarbrücken, Germany.
 
 ## List of Contributors
 - Same as Authors' List
