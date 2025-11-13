@@ -49,31 +49,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{The Journey of Data: Lessons Learned in Modeling Kinase Affinity, Selectivity, and Resistance [Article v1.0]}
 
-\author[1,2,3]{Raquel L\'{o}pez-Ríos de Castro} %\orcid{0000-0003-2668-7405}
-\author[1,3]{Jaime Rodr\'{i}guez-Guerra} %\orcid{0000-0001-8974-1566}
+\author[1,2,3]{Raquel L\'{o}pez-Ríos de Castro} 
+\author[1,3]{Jaime Rodr\'{i}guez-Guerra} 
 \author[1,3]{David Schaller}
-%\orcid{0000-0002-1881-4518}
 \author[1,3]{Talia B. Kimber}
-%\orcid{0000-0002-8881-920X}
 \author[1,3]{Corey Taylor}
-%\orcid{0000-0003-2535-9514}
 \author[3]{Jessica B. White}
-%\orcid{0000-0001-5748-8383}
 \author[2]{Michael Backenköhler}
 \author[4]{Joschka Groß}
 \author[3]{Alexander M. Payne}
-%\orcid{0000-0003-0947-0191}
 \author[3]{Benjamin Kaminow}
-%\orcid{0000-0002-2266-3353}
 \author[3]{Iv\'{a}n Pulido}
-%\orcid{0000-0002-7178-8136}
 \author[3]{Sukrit Singh}
-%\orcid{0000-0003-1914-4955}
 \author[2]{Paula Linh Kramer}
 \author[1,3]{Guillermo P\'{e}rez-Hern\'{a}ndez}
-%\orcid{0000-0002-9287-8704}
 \author[1,2*]{Andrea Volkamer}
-%\orcid{0000-0002-3760-580X}
 \author[3*]{John D. Chodera}
 
 \affil[1]{\textit{In silico} Toxicology and Structural Bioinformatics, Institute of Physiology, Charit\'e-Universit\"atsmedizin Berlin, Germany}
@@ -97,8 +87,11 @@
 \orcid{Benjamin Kaminow}{0000-0002-2266-3353}
 \orcid{Iv\'{a}n Pulido}{0000-0002-7178-8136}
 \orcid{Sukrit Singh}{0000-0003-1914-4955}
+\orcid{Paula Linh Kramer}{0009-0000-0302-8744}
 \orcid{Guillermo P\'{e}rez-Hern\'{a}ndez}{0000-0002-9287-8704}
 \orcid{Andrea Volkamer}{0000-0002-3760-580X}
+\orcid{John D. Chodera}{0000-0003-0542-119X}
+
 
 \blurb{This LiveCoMS document is maintained online on GitHub at \githubrepository; to provide feedback, suggestions, or help improve it, please visit the GitHub repository and participate via the issue tracker.}
 
@@ -159,7 +152,7 @@ The lessons reported here can help guide the development of platforms for struct
 \section{Introduction}
 
 Phosphorylation, or the transfer of an ATP-derived phosphate group to substrate proteins, lipids, or carbohydrates, is one of the most common post-translational modifications and potentiates a wide variety of intracellular signaling cascades.~\cite{Ayala-Aguilera2022, Ramazi2021} 
-This reaction is catalyzed by a class of enzymes called kinases, of which there are nearly 540 unique human proteins.~\cite{Eid2017} 
+This reaction is catalyzed by a class of enzymes called kinases, of which there are nearly 540 unique human proteins.~\cite{eid2017kinmap} 
 Given the centrality of phosphorylation in growth, proliferation, motility, differentiation, and other essential biological processes, kinases are implicated in a variety of diseases and are an important drug target, particularly in oncology indications. 
 Since the approval of the first kinase inhibitor, imatinib, in 2001 through 2023, the U.S.\ Food and Drug Administration (FDA) has approved more than 80 small molecule protein kinase inhibitors.~\cite{roskoski2023pki}
 
@@ -204,7 +197,7 @@ Notably, the study showed a significant increase in model performance \revision{
 In the following sections, we report our experiences in building KinoML. KinoML is a modular and extensible framework for machine learning (ML) in small molecule drug discovery with a special focus on kinases. The purpose of KinoML is to help users conduct ML kinase experiments, from data collection to model evaluation. Note that despite KinoML \revision{focus on kinases}, it can be applied to alternative protein\revision{-ligand} systems. Tutorials on how to use KinoML as well as working examples showcasing how to use KinoML to perform experiments end-to-end can be found \href{https://github.com/openkinome/kinoml/tree/v1.0.0/tutorials}{here}. 
 
 
-In order to describe our experiences in building such a framework, we will first dive into how to obtain and deposit data from different sources in a \revision{findable, accessible, interoperable and reproducible (FAIR)  \cite{wilkinson_2016_scientificdata} } way, including how to preprocess the data properly. 
+In order to describe our experiences in building such a framework, we will first dive into how to obtain and deposit data from different sources in a \revision{findable, accessible, interoperable and reproducible (FAIR)  \cite{wilkinson2016fair} } way, including how to preprocess the data properly. 
 Secondly, we will introduce KinoML, with a description of its main goals and object model along with example scripts explaining how to use it. 
 This will be followed by a description of how to store the information as tensors for easy ingestion in ML applications. 
 To conclude, we summarize the key learnings to conduct ML-based kinase drug discovery experiments transferable also to other areas of drug discovery.
@@ -213,7 +206,7 @@ To conclude, we summarize the key learnings to conduct ML-based kinase drug disc
 % The data journey
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The data journey to KinoData}
-In this section, we will discuss how to collect, curate, integrate, and harmonize kinase data from different sources in a reproducible way and with an emphasis on FAIR principles. \cite{wilkinson_2016_scientificdata} These efforts resulted in \textbf{KinoData}, which is a collection of Jupyter notebooks to reliably select and curate datasets. These scripts can be found \href{https://github.com/openkinome/kinodata}{here}.
+In this section, we will discuss how to collect, curate, integrate, and harmonize kinase data from different sources in a reproducible way and with an emphasis on FAIR principles. \cite{wilkinson2016fair} These efforts resulted in \textbf{KinoData}, which is a collection of Jupyter notebooks to reliably select and curate datasets. These scripts can be found \href{https://github.com/openkinome/kinodata}{here}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % IDENTIFYING AND INTEGRATING USEFUL DATA SOURCES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -309,7 +302,7 @@ The kinase-centric data sources studied were:
 \end{itemize}
 \revision{Notably, each database defines kinases differently. Specifically, KinHub focuses on functional classification via sequence; KLIFS requires structural resolution of kinase domains; KinCoRe emphasizes conformational and inhibitor-labeling; and Kincore annotates both kinase conformation and ligand-binding mode across PDB structures}
 
-Several nomenclatures exist to refer to kinases, i.e., xName \href{http://www.kinhub.org/kinases.html}{(KinHub)}, Manning's kinase classification \cite{manning2002protein}, or HUGO Gene Nomenclature Committee (HGNC) \cite{eyre2006hugo}. 
+Several nomenclatures exist to refer to kinases, i.e., xName \href{http://www.kinhub.org/kinases.html}{(KinHub)}, Manning's kinase classification \cite{Manning2002}, or HUGO Gene Nomenclature Committee (HGNC) \cite{eyre2006hugo}. 
 While there are decent overlaps in the names, there is no uniquely identifying kinase naming system. 
 Therefore, it is advisable to use Uniprot identifiers as the primary search keys when combining and comparing proteins across different data sources. 
 A Uniprot "Entry name" is a unique and universal alphanumerical code assigned to a specific protein \cite{pundir2016uniprot, zaru2023uniprot}. 
@@ -345,7 +338,7 @@ The search and mapping resulted in around $500$ kinases per set, of which $473$ 
 
 	
 
-    \caption{\textbf{Concordance of definitions of human kinases from various sources reporting members of the human kinome.} \revision{Overlap of human kinases queried from five widely different sources. Dunbrack MSA (multiple sequence alignment-based classification from the Dunbrack lab) \cite{modi2019structurally}, Reviewed UniProt (manually curated UniProt entries) \cite{uniprot2015uniprot}, Pkinfam (Protein Kinase Family assignments) \cite{manning2002protein}, Kinhub (kinase annotations from Kinhub.org) \cite{eid2017kinmap}, and KLIFS (Kinase-Ligand Interaction Fingerprints and Structures database) \cite{kooistra2016klifs}. The upper bar plot shows the number of kinases shared between different combinations of data sources. The lower matrix indicates which data sources contribute to each intersection.} Data assembled in \url{https://github.com/openkinome/kinodata/blob/master/human-kinases/human_kinases.ipynb}. %(b) Illustration of kinase architecture (3D).
+    \caption{\textbf{Concordance of definitions of human kinases from various sources reporting members of the human kinome.} \revision{Overlap of human kinases queried from five widely different sources. Dunbrack MSA (multiple sequence alignment-based classification from the Dunbrack lab) \cite{modi2019structurally}, Reviewed UniProt (manually curated UniProt entries) \cite{uniprot2015uniprot}, Pkinfam (Protein Kinase Family assignments) \cite{Manning2002}, Kinhub (kinase annotations from Kinhub.org) \cite{eid2017kinmap}, and KLIFS (Kinase-Ligand Interaction Fingerprints and Structures database) \cite{kooistra2016klifs}. The upper bar plot shows the number of kinases shared between different combinations of data sources. The lower matrix indicates which data sources contribute to each intersection.} Data assembled in \url{https://github.com/openkinome/kinodata/blob/master/human-kinases/human_kinases.ipynb}. %(b) Illustration of kinase architecture (3D).
     }
 	\label{figure:kinome-definitions}    
 \end{figure}
@@ -371,7 +364,7 @@ As mentioned earlier, a local copy provides better performance and reproducibili
 An example of how to filter and process kinase data from ChEMBL can be found in the following Jupyter Notebook from KinoData \footnote{\url{https://github.com/openkinome/kinodata/blob/master/kinase-bioactivities-in-chembl/kinase-bioactivities-in-chembl.ipynb}}.  In this specific example, the resulting dataset was loaded in a Pandas dataframe which was filtered following previously published advice \cite{Kalliokoski2013, Kramer2012}. 
 Figure \ref{fig:chembl_processing} shows the number of PDBs at each step of the ChEMBL curation. Firstly, the data was grouped by protein and ligand, \revision{and only systems with binding activity type $K_d$, $IC50$, or $K_i$ and units in \textit{nM} are kept.} %We then standardised activity values by converting them to logarithmic format (\textit{pMeasurement}).} 
 This resulted in $273,555$ ChEMBL measurements. We call a protein and ligand complex a system. %The entries of the `dummy' ChEMBL target (CHEMBL612545) were removed, since this is a dummy identifier for unchecked targets.
-Also, \revision{following the guidelines for reliable experimental activity data curation of Kramer \textit{et al.} \cite{kramer2012experimental}}, extreme affinity values (\textgreater\ 10 mM or \textless\ 1 fM) or measurements with unclear units were removed, resulting in $272,265$ ChEMBL measurements, as depicted in Figure \ref{fig:chembl_processing}. For systems with several measurements in the same publication, only the highest measured affinity was kept. \revision{Here, this choice was made to emphasize the strongest observed interaction. Other strategies, such as averaging activity values, are equally valid and may be preferable depending on the modeling goals. \cite{hernandez2023experimental}} Two final stages removed duplicates where a manuscript cites the original experimental publication and also in cases of author overlap where the same system was referenced in multiple publications. All these steps resulted in a final $211,697$ measurements as seen in Figure \ref{fig:chembl_processing}. \revision{For more technical details on this curation pipelines please refer to the Jupyter Notebook: \url{https://github.com/openkinome/kinodata/blob/master/kinase-bioactivities-in-chembl/kinase-bioactivities-in-chembl.ipynb} .} 
+Also, \revision{following the guidelines for reliable experimental activity data curation of Kramer \textit{et al.} \cite{Kramer2012}}, extreme affinity values (\textgreater\ 10 mM or \textless\ 1 fM) or measurements with unclear units were removed, resulting in $272,265$ ChEMBL measurements, as depicted in Figure \ref{fig:chembl_processing}. For systems with several measurements in the same publication, only the highest measured affinity was kept. \revision{Here, this choice was made to emphasize the strongest observed interaction. Other strategies, such as averaging activity values, are equally valid and may be preferable depending on the modeling goals. \cite{hernandez2023experimental}} Two final stages removed duplicates where a manuscript cites the original experimental publication and also in cases of author overlap where the same system was referenced in multiple publications. All these steps resulted in a final $211,697$ measurements as seen in Figure \ref{fig:chembl_processing}. \revision{For more technical details on this curation pipelines please refer to the Jupyter Notebook: \url{https://github.com/openkinome/kinodata/blob/master/kinase-bioactivities-in-chembl/kinase-bioactivities-in-chembl.ipynb} .} 
 
 
 \paragraph{PKIS2}
@@ -576,7 +569,7 @@ A comprehensive explanation of these different featurization schemes can be foun
 
 \paragraph{\textbf{Structural representations}}
 %In the case of molecular systems containing a small molecule and protein, a desired output may also be the modeled protein:ligand complex to allow for automated setup of molecular simulations.
-KinoML allows the user to easily apply docking pipelines to protein:ligand systems. KinoML has interfaces to several docking and template docking methods, that allow users to prepare protein structures and to dock small molecules into their binding sites. The docking strategies currently covered within KinoML use OpenEye \cite{oedocking} or Schrödinger software (\url{https://newsite.schrodinger.com/}). \revision{Note that these docking engines are not open-source, though OpenEye provides a free academic license. We selected OpenEye and Schrödinger because of their robustness and their support for template docking.}\footnote{Note, that a valid license for at least one of the two is needed to use KinoML docking capabilities. As of \today, OpenEye offers to apply for free academic licenses.} Structural featurizers can output the resulting protein in PDB format and a prepared and/or docked small molecule in SDF format.
+KinoML allows the user to easily apply docking pipelines to protein:ligand systems. KinoML has interfaces to several docking and template docking methods, that allow users to prepare protein structures and to dock small molecules into their binding sites. The docking strategies currently covered within KinoML use OpenEye \cite{oedocking} or Schrödinger software (\url{https://www.schrodinger.com}). \revision{Note that these docking engines are not open-source, though OpenEye provides a free academic license. We selected OpenEye and Schrödinger because of their robustness and their support for template docking.}\footnote{Note, that a valid license for at least one of the two is needed to use KinoML docking capabilities. As of \today, OpenEye offers to apply for free academic licenses.} Structural featurizers can output the resulting protein in PDB format and a prepared and/or docked small molecule in SDF format.
 
 \paragraph{Docking algorithms in KinoML} Docking is a computational molecular modeling technique used to predict the preferred binding orientation or pose of a small molecule (ligand) within a binding site on a target protein. \cite{morris2008molecular} Docking is classically a two-step process of positioning and scoring the ligand within the binding site to suggest energetically favorable binding mode\revision{s}. This can provide valuable insights into the structure activity relationship and key protein:ligand interactions. However, issues such as inaccurate scoring functions and \revision{the inability of rigid docking models to account for protein and ligand flexibility} can limit the accuracy of docking predictions. \cite{forli2016computational} Template docking, which uses known ligand-protein complexes to guide the docking process, can help address some of these limitations by providing a more reliable framework for predicting binding poses. \cite{schaller2023benchmarking}
 
