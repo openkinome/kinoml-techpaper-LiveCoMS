@@ -42,7 +42,7 @@
 
 \newcommand{\versionnumber}{1.0}  % you should update the minor version number in preprints and major version number of submissions.
 % Do not add a newline in the next command, no matter how long the repository name is, as it will break the link in the PDF.
-\newcommand{\githubrepository}{\url{https://github.com/raquellrios/kinoml-techpaper-LiveCoMS/}}  %this should be the main github repository for this article
+\newcommand{\githubrepository}{\url{https://github.com/openkinome/kinoml-techpaper-LiveCoMS}}  %this should be the main github repository for this article
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% ARTICLE SETUP
@@ -215,7 +215,7 @@ In this section, we will discuss how to collect, curate, integrate, and harmoniz
 
 High-throughput kinase-ligand binding affinity experiments are routinely conducted, generating valuable data for individual research questions but also for ML models and large-scale simulations.
 For instance, standardized assay platforms like DiscoverX\footnote{\href{https://www.discoverx.com/}{https://www.discoverx.com/}}, KinomeSCAN\footnote{\href{https://lincs.hms.harvard.edu/kinomescan/}{https://lincs.hms.harvard.edu/kinomescan/}}, and KdELECT\footnote{\href{https://www.eurofinsdiscovery.com/solution/kdelect}{https://www.eurofinsdiscovery.com/solution/kdelect}} provide experimental binding affinity values for kinase-ligand pairs. Also, regarding only kinases, there is publicly available data such as the Published Kinase Inhibitor Set 2 (PKIS2). \cite{drewry2017progress} 
-Furthermore, there are publicly available curated databases of bioactivity of molecules with drug-like properties, that are not specific to kinases, such as ChEMBL\footnote{\href{https://www.ebi.ac.uk/chembl/}{https://www.ebi.ac.uk/chembl/}}\cite{zdrazil2023chembl} or PubChem\footnote{\href{https://pubchem.ncbi.nlm.nih.gov/}{https://pubchem.ncbi.nlm.nih.gov/}}.
+Furthermore, there are publicly available curated databases of bioactivity of molecules with drug-like properties, that are not specific to kinases, such as ChEMBL\footnote{\href{https://www.ebi.ac.uk/chembl/}{https://www.ebi.ac.uk/chembl/}}\cite{zdrazil2024chembl} or PubChem\footnote{\href{https://pubchem.ncbi.nlm.nih.gov/}{https://pubchem.ncbi.nlm.nih.gov/}}.
 
 However, proper data handling (data preprocessing) is crucial before integrating data into any pipeline. 
 This involves deduplication, unit system standardization, mislabeled entry filtering, and other data-wrangling tasks that significantly impact downstream model and simulation quality. 
@@ -245,7 +245,7 @@ Availability is ensured through the publisher, but differences in how files are 
 If specific data is not publicly accessible, it may be necessary to request it from another researcher (if there is a Data Availability Statement). 
 Alternatively, if files are shared through private channels, \revision{researchers should} ensure their public deposition with a permanent URL to achieve long-term availability and immutability.  
 Another point to keep in mind is that licensing issues may be a hindrance when using data from other researchers or organizations. 
-In this case, it is recommended to directly contact the authors. Moreover, when considering which licensing scheme to use for your own data, it is recommended to use the \href{https://creativecommons.org/public-domain/cc0/}{CC0} (public domain) license \cite{stodden2009enabling}. This type of licensing allows data to be treated as if it is in the public domain, facilitating aggregation of data into other repositories, thereby promoting collaborations and knowledge sharing. 
+In this case, it is recommended to directly contact the authors. Moreover, when considering which licensing scheme to use for your own data, it is recommended to use the \href{https://creativecommons.org/public-domain/cc0/}{CC0} (public domain) license \cite{labastida2020licensing}. This type of licensing allows data to be treated as if it is in the public domain, facilitating aggregation of data into other repositories, thereby promoting collaborations and knowledge sharing. 
 
 Following these recommendations when dealing with online datasets, peer-reviewed publications, or privately shared files will ensure that the data remains available and unchanged, promoting the reproducibility of your research.
 
@@ -293,7 +293,7 @@ To address this issue, we referred to several publications and the most relevant
 The kinase-centric data sources studied were: 
 
 \begin{itemize}
-\item {\href{http://www.kinhub.org/}{KinHub}} is a web-based tool for interactive navigation through and visualization of human kinome data, following the nomenclature by Manning \textit{et al.} Pre-processed data from freely available sources such as ChEMBL~\cite{zdrazil2023chembl}, the Protein Data Bank (PDB) (\url{https://www.rcsb.org/}), and the Center for Therapeutic Target Validation (CTTV) were compiled, integrated, and visualized on the kinome tree.~\cite{eid2017kinmap} 
+\item {\href{http://www.kinhub.org/}{KinHub}} is a web-based tool for interactive navigation through and visualization of human kinome data, following the nomenclature by Manning \textit{et al.} Pre-processed data from freely available sources such as ChEMBL~\cite{zdrazil2024chembl}, the Protein Data Bank (PDB) (\url{https://www.rcsb.org/}), and the Center for Therapeutic Target Validation (CTTV) were compiled, integrated, and visualized on the kinome tree.~\cite{eid2017kinmap} 
 
 \item {\href{https://klifs.net/}{KLIFS}}~\cite{Kanev2020}: The Kinase–Ligand Interaction Fingerprints and Structures (KLIFS) database collects all kinase structures and aligns, annotates, and curates them with related kinase information. KLIFS now contains over $6,667$ annotated structures, comprised of $326$ unique kinases and over $4,148$ unique ligands as of May 2024.
 
@@ -349,13 +349,13 @@ The search and mapping resulted in around $500$ kinases per set, of which $473$ 
 \subsubsection{Data collection and curation: bioactivity data}
 
 Once the kinase target set is obtained, the next step is to obtain bioactivity measurements for these kinases from online databases or other resources. 
-For this purpose, we considered two online databases: ChEMBL \cite{zdrazil2023chembl} and PKIS2 \cite{drewry2017progress}. 
+For this purpose, we considered two online databases: ChEMBL \cite{zdrazil2024chembl} and PKIS2 \cite{drewry2017progress}. 
 %Note that accessing and filtering data from both databases can be easily done with KinoML, but this will be discussed later. 
 In this section, we discuss the advantages and disadvantages of ChEMBL and PKIS2, followed by a step-by-step example of how to collect and curate ChEMBL kinase data using KinoML.
 
 
 \paragraph{ChEMBL}
-\href{https://www.ebi.ac.uk/chembl/}{ChEMBL} \cite{zdrazil2023chembl} is one of the largest and most well-known databases containing bioactivity data for over $2.4$ million distinct compounds (as of May 2024) and is therefore of interest for any kinase-centric ML study. Given a kinase target set, querying bioactivity measurements in ChEMBL can be done with the UniProt ID, since ChEMBL offers a mapping from UniProt identifiers to their own internal labels (ChEMBL target IDs). 
+\href{https://www.ebi.ac.uk/chembl/}{ChEMBL} \cite{zdrazil2024chembl} is one of the largest and most well-known databases containing bioactivity data for over $2.4$ million distinct compounds (as of May 2024) and is therefore of interest for any kinase-centric ML study. Given a kinase target set, querying bioactivity measurements in ChEMBL can be done with the UniProt ID, since ChEMBL offers a mapping from UniProt identifiers to their own internal labels (ChEMBL target IDs). 
 In ChEMBL, a target can be part of different kinds of assays, and thus different types of measurements are reported.
 For the purpose of this study, we are only interested in single protein measurements, i.e., binding assays with $K_d$, $IC50$, or $K_i$ data available.
 
